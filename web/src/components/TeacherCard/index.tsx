@@ -24,7 +24,7 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher }) => {
     api.post("/connections", {
       user_id: teacher.id
     })
-  }  ""
+  }
 
   return (
     <article className="teacher-item">
