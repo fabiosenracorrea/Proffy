@@ -8,7 +8,7 @@ import api from '../../services/api';
 export interface Teacher {
   avatar: string;
   bio: string;
-  id: number;
+  user_id: number;
   name: string;
   whatsapp: string;
   cost: number;
@@ -22,7 +22,7 @@ interface TeacherCardProps {
 const TeacherCard: React.FC<TeacherCardProps> = ({ teacher }) => {
   function CreateNewConnection() {
     api.post("/connections", {
-      user_id: teacher.id
+      user_id: teacher.user_id
     })
   }
 

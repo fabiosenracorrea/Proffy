@@ -26,9 +26,8 @@ function TeacherList() {
             }
         })
 
-        setTeachers(response.data)
+        setTeachers(response.data);
     }
-
 
     return (
         <div id="page-teacher-list" className="container">
@@ -81,7 +80,7 @@ function TeacherList() {
 
             <main>
                 {teachers.map((teacher: Teacher) => {
-                    return <TeacherCard key={teacher.id} teacher={teacher}/>
+                    return <TeacherCard key={teacher.user_id} teacher={teacher}/>
                 })}
             </main>
         </div>
