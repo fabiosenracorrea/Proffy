@@ -16,46 +16,49 @@ function HomePage() {
           <h2>Sua plataforma de estudos online.</h2>
         </div>
 
-        <main>
-          <form className="login">
-            <h1>Fazer login</h1>
+        <div className="main-container">
+          <main>
+            <form className="login">
+              <h1>Fazer login</h1>
 
-            <div className="login-group">
-              <input type="text" id="email" placeholder=" "/>
-              <label htmlFor="email">
-                <span className="label">E-mail</span>
-                </label>
-            </div>
+              <div className="login-group">
+                <input type="text" id="email" placeholder=" "/>
+                <label htmlFor="email">
+                  <span className="label">E-mail</span>
+                  </label>
+              </div>
 
-            <div className="login-group">
-              <input type="password" id="password" placeholder=" "/>
-              <label htmlFor="password">
-                <span className="label">Senha</span>
-              </label>
-            </div>
-
-            <div className="login-help">
-              <div className="remember-container">
-                <label htmlFor="remember">
-                  <input type="checkbox" name="remember-me" id="remember"/>
-                  <span className="checkmark"></span>
-                  <span className="check-text">Lembrar-me</span>
+              <div className="login-group">
+                <input type="password" id="password" placeholder=" "/>
+                <label htmlFor="password">
+                  <span className="label">Senha</span>
                 </label>
               </div>
-              <Link to="/">Esqueci minha senha</Link>
-            </div>
 
-            <button type="button">Entrar</button>
-          </form>
+              <div className="login-help">
+                <div className="remember-container">
+                  <label htmlFor="remember">
+                    <input type="checkbox" name="remember-me" id="remember"/>
+                    <span className="checkmark"></span>
+                    <span className="check-text">Lembrar-me</span>
+                  </label>
+                </div>
+                <Link to="/">Esqueci minha senha</Link>
+              </div>
 
-          <footer>
-            <div className="signup">
-                <p>Não tem conta?</p>
-                <Link to="/">Cadastre-se</Link>
-            </div>
-            <p>É de graça <img src={purpleHeart} alt="Purple Heart"/></p>
-          </footer>
-        </main>
+              <button type="button">Entrar</button>
+            </form>
+
+            <footer>
+              <div className="signup">
+                  <p>Não tem conta?</p>
+                  <Link to="/">Cadastre-se</Link>
+              </div>
+              <p>É de graça <img src={purpleHeart} alt="Purple Heart"/></p>
+            </footer>
+          </main>
+
+        </div>
       </div>
     </div>
   )
