@@ -1,0 +1,64 @@
+#home-signup {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#home-signup .back-link {
+  position: absolute;
+  width: 50%;
+  top: 30vh;
+}
+
+#home-signup .back-link a {
+  margin-left: 5vw;
+}
+
+#home-signup .login-group #email {
+  border-radius: 0;
+}
+
+#home-signup .login-group #firstname {
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+
+#home-signup form button {
+  margin-top: 3rem;
+  background-color: var(--color-secundary);
+  color: var(--color-button-text)
+}
+
+#home-signup .form-description {
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  #home-signup .form-description {
+    max-width: 23rem;
+    text-align: start;
+  }
+
+  #home-signup form h1 {
+    text-align: start;
+  }
+
+  #home-signup .logo-container {
+    grid-area: form;
+  }
+
+  #home-signup .main-container{
+    grid-area: logo;
+  }
+
+  #home-signup #home-content .login-group input {
+    width: 80%;
+  }
+
+  #home-signup form button {
+    width: 80%;
+  }
+
+  #home-signup .back-link {
+    top: 5vh;
+  }
+}

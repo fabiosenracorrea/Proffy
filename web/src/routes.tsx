@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import TeacherList from './pages/TeacherList';
 import TeacherForm from './pages/TeacherForm';
 import HomePage from './pages/Home';
+import Signup from './pages/SignUp'
 
 function Routes() {
     return (
@@ -12,6 +13,7 @@ function Routes() {
             <Route path="/study" component={TeacherList} />
             <Route path="/give-classes" component={TeacherForm} />
             <Route path="/home" component={HomePage} />
+            <Route path="/signup" component={Signup} />
         </BrowserRouter>
     )
 }

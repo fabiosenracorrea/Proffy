@@ -1,0 +1,219 @@
+#home-content .logo-container {
+  background-color: var(--color-primary);
+  padding: 2rem;
+  color: var(--color-text-in-primary);
+  text-align: center;
+}
+
+#home-content .main-container {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+#home-content main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#home-content form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+#home-content form h1 {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+#home-content .form-description {
+  margin-bottom: 3rem;
+  max-width: 24rem;
+  color: var(--color-text-complement)
+}
+
+#home-content .login-group {
+  flex: 1;
+  position: relative;
+}
+
+#home-content .login-group input {
+  width: 100%;
+  padding: 2.8rem 2rem 1.2rem;
+  border: 0.1px solid rgb(202, 200, 200);
+  outline: none;
+}
+
+#home-content #email {
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+
+#home-content #password {
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
+#home-content .login-group label {
+  position: absolute;
+  bottom: 2rem;
+  left: 1.5rem;
+  font-family: Poppins;
+  color: var(--color-text-complement);
+  pointer-events: none;
+}
+
+#home-content .login-group label .label {
+  position: relative;
+}
+
+#home-content .login-group input:focus + label .label,
+#home-content .login-group input:not(:placeholder-shown) + label .label {
+  bottom: 2rem;
+  left: 0.5rem;
+  font-size: 60%;
+}
+
+#home-content .login-help {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 2.3rem;
+  color: var(--color-text-complement);
+  font-family: Poppins;
+  font-weight: 400;
+}
+
+.remember-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.remember-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check-text {
+  position: absolute;
+  left: 3rem;
+  bottom: 0;
+  width: 200px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.3rem;
+  width: 2.3rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.8rem;
+}
+
+.remember-container input:checked ~ .checkmark {
+  background-color: var(--color-secundary);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.remember-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.remember-container .checkmark:after {
+  left: 0.8rem;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 1rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+#home-content .login-help a {
+  color: var(--color-text-complement);
+  text-decoration: none;
+}
+
+#home-content .login-help a:hover {
+  color: var(--color-primary)
+}
+
+#home-content form button {
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  border: 0;
+  background-color: #dbdbe9;
+  color: var(--color-text-complement);
+  font-weight: 700;
+  font-family: Archivo, sans-serif;
+  outline: none;
+  cursor: pointer;
+}
+
+#home-content footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+#home-content footer .signup p {
+  font-size: 1.5rem;
+  color: black;
+}
+
+#home-content footer p {
+  font-size: 80%;
+  color: var(--color-text-complement)
+}
+
+#home-content footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+@media (min-width: 900px) {
+  #home-content.content {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo form";
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #home-content .logo-container {
+    background: url(../../assets/images/success-background.svg);
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: logo;
+  }
+
+  #home-content .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: form;
+  }
+}
