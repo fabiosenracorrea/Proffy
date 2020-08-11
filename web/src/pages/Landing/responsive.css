@@ -43,6 +43,19 @@
        grid-area: total;
        justify-self: end;
    }
+}
 
-   
+@media (max-width: 350px) {
+    #page-landing .logo-container img {
+        height: 7rem;
+    }
+
+    #page-landing .buttons-container a {
+        flex-direction: column;
+    }
+
+    #page-landing .buttons-container a img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
 }
