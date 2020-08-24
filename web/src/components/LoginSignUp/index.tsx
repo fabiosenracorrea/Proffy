@@ -11,9 +11,10 @@ interface LoginSignUpProps {
   buttonText: string;
   login?: boolean;
   description?: string;
+  password?: boolean;
 }
 
-const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, description, children }) => {
+const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, description, password, children }) => {
   return (
     <div id="home-content" className="content">
         <div className="logo-container">
@@ -38,26 +39,26 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
                 <input type="text" id="email" placeholder=" "/>
                 <label htmlFor="email">
                   <span className="label">E-mail</span>
-                  </label>
+                </label>
               </div>
 
-              <div className="login-group">
+              {password && (<div className="login-group">
                 <input type="password" id="password" placeholder=" "/>
                 <label htmlFor="password">
                   <span className="label">Senha</span>
                 </label>
-              </div>
+              </div>)}
 
               {login && (
                 <div className="login-help">
-                <div className="remember-container">
-                  <label htmlFor="remember">
-                    <input type="checkbox" name="remember-me" id="remember"/>
-                    <span className="checkmark"></span>
-                    <span className="check-text">Lembrar-me</span>
-                  </label>
-                </div>
-                <Link to="/">Esqueci minha senha</Link>
+                  <div className="remember-container">
+                    <label htmlFor="remember">
+                      <input type="checkbox" name="remember-me" id="remember"/>
+                      <span className="checkmark"></span>
+                      <span className="check-text">Lembrar-me</span>
+                    </label>
+                  </div>
+                  <Link to="/forgot-password">Esqueci minha senha</Link>
                 </div>
               )}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LoginSignUp from '../../components/LoginSignUp';
-import backIcon from '../../assets/images/icons/back.svg'
+import backIcon from '../../assets/images/icons/back.svg';
 
 import './styles.css';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ function SignUp() {
           <img src={backIcon} alt="Voltar"/>
         </Link>
       </div>
-      <LoginSignUp title="Cadastro" buttonText="Concluir Cadastro" description="Preencha os dados abaixo para começar">
+      <LoginSignUp title="Cadastro" buttonText="Concluir Cadastro" description="Preencha os dados abaixo para começar" password={true}>
           <div className="login-group">
             <input type="text" id="firstname" placeholder=" "/>
             <label htmlFor="firstname">

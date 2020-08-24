@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+#home-content .logo-container img {
+  height: 10rem;
+}
+
 #home-content .main-container {
   width: 100%;
   margin-top: 1.5rem;
@@ -43,6 +47,16 @@
   padding: 2.8rem 2rem 1.2rem;
   border: 0.1px solid rgb(202, 200, 200);
   outline: none;
+}
+
+#home-content .login-group:focus-within:after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-primary);
+  height: calc(80% - 1.6rem);
+  left: 0;
+  bottom: 0.8rem;
+  width: 2.5px;
 }
 
 #home-content #email {
@@ -105,7 +119,7 @@
   position: absolute;
   left: 3rem;
   bottom: 0;
-  width: 200px;
+  width: 20rem;
 }
 
 .checkmark {
@@ -143,7 +157,6 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 
 #home-content .login-help a {
   color: var(--color-text-complement);
@@ -215,5 +228,29 @@
     flex-direction: column;
     justify-content: center;
     grid-area: form;
+  }
+}
+
+@media (max-width: 400px) {
+  #home-content .logo-container img {
+    height: 7rem;
+  }
+
+  #home-content .login-help a {
+    font-size: 80%;
+  }
+
+  #home-content .check-text {
+    bottom: -0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  #home-content .login-help a {
+    font-size: 60%;
+  }
+
+  #home-content .check-text {
+    bottom: -0.7rem;
   }
 }

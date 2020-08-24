@@ -6,7 +6,7 @@
 #home-signup .back-link {
   position: absolute;
   width: 50%;
-  top: 30vh;
+  top: 28vh;
 }
 
 #home-signup .back-link a {
@@ -24,7 +24,12 @@
 #home-signup form button {
   margin-top: 3rem;
   background-color: var(--color-secundary);
-  color: var(--color-button-text)
+  color: var(--color-button-text);
+  transition: background-color 0.2s ease;
+}
+
+#home-signup form button:hover {
+  background-color: var(--color-secundary-dark);
 }
 
 #home-signup .form-description {

@@ -8,7 +8,7 @@ function HomePage() {
   
   return (
     <div id="home-page">
-      <LoginSignUp title="Fazer login" buttonText="Entrar" login={true} />
+      <LoginSignUp title="Fazer login" buttonText="Entrar" login={true} password={true}/>
     </div>
   )
 }
