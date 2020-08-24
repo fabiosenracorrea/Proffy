@@ -1,0 +1,64 @@
+#forgot-password {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#forgot-password .back-link {
+  position: absolute;
+  width: 50%;
+  top: 28vh;
+}
+
+#forgot-password .back-link a {
+  margin-left: 5vw;
+}
+
+#forgot-password .form-description {
+  max-width: 100%;
+  text-align: center;
+}
+
+#forgot-password #email {
+  border-radius: 0.8rem;
+}
+
+#forgot-password .login-group:focus-within + button {
+  background-color: var(--color-secundary);
+  color: var(--color-title-in-primary)
+}
+
+#forgot-password button {
+  margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+  #forgot-password .back-link {
+    top: 5vh;
+  }
+
+  #forgot-password .logo-container {
+    grid-area: form;
+  }
+
+  #forgot-password .main-container {
+    grid-area: logo;
+  }
+
+  #forgot-password .login-group input {
+    width: 80%;
+  }
+
+  #forgot-password form button {
+    width: 80%;
+  }
+
+  #forgot-password form h1 {
+    text-align: start;
+    max-width: 30rem;
+    font-size: 4rem;
+  }
+
+  #forgot-password .form-description {
+    text-align: start;
+  }
+}

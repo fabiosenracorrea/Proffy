@@ -1,0 +1,5 @@
+@media (min-width: 700px) {
+  #signup-success .success-msg p {
+    max-width: 40rem;
+  }
+}
