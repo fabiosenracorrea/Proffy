@@ -67,6 +67,20 @@
   border-radius: 0 0 0.8rem 0.8rem;
 }
 
+#home-content .show-hide-password {
+  position: absolute;
+  right: 1.5rem;
+  height: 100%;
+  top: 0;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+}
+
+#home-content .show-hide-password img {
+  cursor: pointer;
+}
+
 #home-content .login-group label {
   position: absolute;
   bottom: 2rem;
@@ -171,12 +185,18 @@
   padding: 1.5rem;
   border-radius: 0.8rem;
   border: 0;
-  background-color: #dbdbe9;
-  color: var(--color-text-complement);
+  background-color: var(--color-secundary);
+  color: var(--color-button-text);
   font-weight: 700;
   font-family: Archivo, sans-serif;
   outline: none;
   cursor: pointer;
+}
+
+#home-content form button:disabled {
+  color: var(--color-text-complement);
+  background-color: #dbdbe9;
+  pointer-events: none;
 }
 
 #home-content footer {

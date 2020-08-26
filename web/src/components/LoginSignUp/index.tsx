@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/images/logo.svg';
 import purpleHeart from '../../assets/images/icons/purple-heart.svg';
+import eye from '../../assets/images/icons/eye.svg';
+import eyeoff from '../../assets/images/icons/eye-off.svg';
 
 import './styles.css';
-import { Link } from 'react-router-dom';
 
 interface LoginSignUpProps {
   title: string;
@@ -15,6 +17,33 @@ interface LoginSignUpProps {
 }
 
 const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, description, password, children }) => {
+  const [email, setEmail] = useState('');
+  const [userPassword, setPassword] = useState('');
+  const [pwShown, setPwShown] = useState(false);
+
+  function checkInputFields() {
+    if (login) {
+      return (email !== '' && userPassword !== '');
+    }
+    return true;
+  }
+
+  function handleShowHidePw(img: HTMLImageElement) {
+    const pwElement = document.getElementById("password");
+
+    if (pwShown) {
+      pwElement?.setAttribute("type", "password");
+      img.src = eye;
+      setPwShown(false);
+      return;
+    }
+
+    pwElement?.setAttribute("type", "text");
+
+    img.src = eyeoff;
+    setPwShown(true);
+  }
+
   return (
     <div id="home-content" className="content">
         <div className="logo-container">
@@ -36,18 +65,23 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
               {children}
 
               <div className="login-group">
-                <input type="text" id="email" placeholder=" "/>
+                <input type="text" id="email" placeholder=" " onChange={e => setEmail(e.target.value)}/>
                 <label htmlFor="email">
                   <span className="label">E-mail</span>
                 </label>
               </div>
 
-              {password && (<div className="login-group">
-                <input type="password" id="password" placeholder=" "/>
-                <label htmlFor="password">
-                  <span className="label">Senha</span>
-                </label>
-              </div>)}
+              {password && (
+                <div className="login-group">
+                  <input type="password" id="password" placeholder=" " onChange={e => setPassword(e.target.value)}/>
+                  <label htmlFor="password">
+                    <span className="label">Senha</span>
+                  </label>
+                  <div className="show-hide-password">
+                    <img src={eye} alt="show-password" onClick={e => handleShowHidePw(e.target as HTMLImageElement)}/>
+                  </div>
+                </div>
+              )}
 
               {login && (
                 <div className="login-help">
@@ -62,9 +96,9 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
                 </div>
               )}
 
-              <button type="button">{buttonText}</button>
+              <button type="button" disabled={(!checkInputFields())}>{buttonText}</button>
             </form>
-            
+
             {login && (
               <footer>
               <div className="signup">
