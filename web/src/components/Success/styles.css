@@ -1,0 +1,51 @@
+#success-page {
+  background: url(../../assets/images/success-background.svg) no-repeat;
+  background-position: center;
+  background-color: var(--color-primary);
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#success-page .success-msg {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  color: var(--color-title-in-primary);
+  padding: 0 2rem;
+}
+
+#success-page .success-msg h1 {
+  margin-top: 1rem;
+}
+
+#success-page .success-msg p {
+  margin: 2.5rem 0 3rem;
+  color: var(--color-text-in-primary);
+}
+
+#success-page .success-msg a {
+  height: 4.5rem;
+  width: 18rem;
+  border-radius: 0.6rem;
+  background-color: var(--color-secundary);
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#success-page .success-msg a:hover {
+  background-color: var(--color-secundary-dark);
+}
+
+@media (min-width: 700px) {
+  #success-page .success-msg p {
+    max-width: 50rem;
+  }
+}
