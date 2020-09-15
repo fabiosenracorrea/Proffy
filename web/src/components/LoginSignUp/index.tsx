@@ -28,22 +28,6 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
     return true;
   }
 
-  function handleShowHidePw(img: HTMLImageElement) {
-    const pwElement = document.getElementById("password");
-
-    if (pwShown) {
-      pwElement?.setAttribute("type", "password");
-      img.src = eye;
-      setPwShown(false);
-      return;
-    }
-
-    pwElement?.setAttribute("type", "text");
-
-    img.src = eyeoff;
-    setPwShown(true);
-  }
-
   return (
     <div id="home-content" className="content">
         <div className="logo-container">
@@ -73,12 +57,12 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
 
               {password && (
                 <div className="login-group">
-                  <input type="password" id="password" placeholder=" " onChange={e => setPassword(e.target.value)}/>
+                  <input type={pwShown ? "text" : "password"} id="password" placeholder=" " onChange={e => setPassword(e.target.value)}/>
                   <label htmlFor="password">
                     <span className="label">Senha</span>
                   </label>
                   <div className="show-hide-password">
-                    <img src={eye} alt="show-password" onClick={e => handleShowHidePw(e.target as HTMLImageElement)}/>
+                    <img src={pwShown ? eye : eyeoff} alt="show-password" onClick={e => setPwShown(!pwShown)}/>
                   </div>
                 </div>
               )}
