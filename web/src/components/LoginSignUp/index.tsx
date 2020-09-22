@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/images/logo.svg';
@@ -14,16 +14,21 @@ interface LoginSignUpProps {
   login?: boolean;
   description?: string;
   password?: boolean;
+  emailValue?: string;
+  setEmail: (s: any) => void;
+  setPassword: (s: any) => void;
+  submitFunc: (e: FormEvent<HTMLFormElement>) => Promise<void>;
+  passwordValue?: string;
 }
 
-const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, description, password, children }) => {
-  const [email, setEmail] = useState('');
-  const [userPassword, setPassword] = useState('');
+const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText,
+  login, description, password, children, submitFunc,
+  emailValue, passwordValue, setEmail, setPassword }) => {
   const [pwShown, setPwShown] = useState(false);
 
   function checkInputFields() {
     if (login) {
-      return (email !== '' && userPassword !== '');
+      return (emailValue !== '' && passwordValue !== '');
     }
     return true;
   }
@@ -37,7 +42,7 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
 
         <div className="main-container">
           <main>
-            <form className="login">
+            <form className="login" onSubmit={submitFunc}>
               <h1>{title}</h1>
               {description && (
                 <p className="form-description">
@@ -80,7 +85,7 @@ const LoginSignUp: React.FC<LoginSignUpProps> = ({ title, buttonText, login, des
                 </div>
               )}
 
-              <button type="button" disabled={(!checkInputFields())}>{buttonText}</button>
+              <button type="submit" disabled={(!checkInputFields())}>{buttonText}</button>
             </form>
 
             {login && (

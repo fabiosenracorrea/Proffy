@@ -7,7 +7,7 @@ import './styles.css';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
-  
+
   return (
     <div id="home-signup">
       <div className="back-link">
@@ -15,7 +15,15 @@ function SignUp() {
           <img src={backIcon} alt="Voltar"/>
         </Link>
       </div>
-      <LoginSignUp title="Cadastro" buttonText="Concluir Cadastro" description="Preencha os dados abaixo para começar" password={true}>
+      <LoginSignUp
+        title="Cadastro"
+        buttonText="Concluir Cadastro"
+        description="Preencha os dados abaixo para começar"
+        password={true}
+        setEmail={() => console.log(`hey`)}
+        setPassword={() => console.log(`hey`)}
+        submitFunc={async () => console.log(`hey`)}
+      >
           <div className="login-group">
             <input type="text" id="firstname" placeholder=" "/>
             <label htmlFor="firstname">

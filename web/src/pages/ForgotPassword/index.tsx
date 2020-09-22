@@ -17,6 +17,9 @@ function ForgotPassword() {
         title="Eita, esqueceu sua senha?"
         description="Não esquenta, vamos dar um jeito nisso."
         buttonText="Enviar"
+        setEmail={() => console.log(`hey`)}
+        setPassword={() => console.log(`hey`)}
+        submitFunc={async () => console.log(`hey`)}
       />
     </div>
   )
