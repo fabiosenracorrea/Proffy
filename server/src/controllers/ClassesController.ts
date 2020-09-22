@@ -1,5 +1,6 @@
 import {Request, Response} from 'express'
 import db from '../database/connection';
+import AppError from '../errors/AppError';
 import convertHourToMinutes from '../utills/convertHourToMinutes';
 
 interface ScheduleItem {
@@ -18,9 +19,8 @@ export default class ClassesController {
     const time = filters.time as string;
 
     if (!filters.week_day || !filters.subject || !filters.time) {
-      return res.status(400).json({
-        error: "Missing filters to search classes"
-      });
+      throw new AppError('Missing filters to search classes', 400);
+
     }
 
     const timeInMinutes = convertHourToMinutes(time);
@@ -33,11 +33,14 @@ export default class ClassesController {
           .whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)])
           .whereRaw('`class_schedule`.`from` <= ??' , [timeInMinutes])
           .whereRaw('`class_schedule`.`to` > ??' , [timeInMinutes])
-          
+
      })
       .where('classes.subject', '=', subject)
       .join('users', 'classes.user_id', '=', 'users.id')
-      .select(['classes.*', 'users.*']);
+      .select(['classes.*', 'users.name'])
+      .join('user_info', 'classes.user_id', '=', 'user_info.user_id')
+      .select(['classes.*', 'user_info.*'])
+
 
     return res.json(classes);
   }
@@ -45,7 +48,6 @@ export default class ClassesController {
 
   async create(req: Request, res: Response) {
     const {
-      name,
       avatar,
       whatsapp,
       bio,
@@ -53,29 +55,29 @@ export default class ClassesController {
       cost,
       schedule
     } = req.body;
-    
+
+    const { id: user_id } = req.user;
+
     const trx = await db.transaction();
-    
+
     try {
-      const insertedUsersIds = await trx('users').insert({
-        name,
+      const insertedUsersIds = await trx('user_info').insert({
         avatar,
         whatsapp,
         bio,
+        user_id,
       })
-    
-      const user_id = insertedUsersIds[0];
-    
+
       const insertedClassesIds = await trx('classes').insert({
         subject,
         cost,
         user_id,
       })
-    
+
       const class_id = insertedClassesIds[0];
-    
+
       //lembrar que o schedule é um array
-    
+
       const classSchedule = schedule.map((item: ScheduleItem) => {
         return {
           class_id,
@@ -84,19 +86,17 @@ export default class ClassesController {
           to: convertHourToMinutes(item.to)
         }
       })
-    
+
       await trx('class_schedule').insert(classSchedule);
-    
+
       await trx.commit(); // realiza a operação
-    
+
       return res.status(201).send();
-  
+
     } catch (err) {
         trx.rollback();
-  
-        return res.status(400).json({
-          error: 'Unexpected error while creating new class'
-        })
+
+        throw new AppError('Unexpected error while creating new class', 400);
     }
   }
 }

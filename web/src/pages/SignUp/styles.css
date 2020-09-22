@@ -59,6 +59,10 @@
     width: 80%;
   }
 
+  #home-signup #home-content .login-group .show-hide-password {
+    right: calc(1.5rem + 20%);
+  }
+
   #home-signup form button {
     width: 80%;
   }
